@@ -1,0 +1,179 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: 2021 Timo Tijhof <https://timotijhof.net>
+License: MIT
+
+Files: lib/silk_icons/page_white_text.png lib/silk_icons/*.png
+Copyright: Mark James <http://www.famfamfam.com>
+License: CC-BY-3.0
+Source: http://www.famfamfam.com/lab/icons/silk/
+Comment: <https://opengameart.org/content/application-silk-icon-set-13>
+
+Files: lib/0ad_08bitbonus_48kbs.mp3
+Copyright: 2018 Materia Collective LLC
+License: CC-BY-SA-3.0
+Source: https://play0ad.bandcamp.com/album/0-a-d-original-game-soundtrack
+Comment: "0 A.D. (Original Game Soundtrack)" was composed by Omri Lahav.
+ Additional music from Jeff Willet, Mike Skalandunas, Shlomi Nogay.
+ .
+ 0 A.D. is a free and open-source ancient warfare game.
+ For more information, refer to <https://play0ad.com/>.
+ .
+ This artists have my sincere apologies for significantly lowering the bitrate
+ (performance reasons). Please check out the original album and listen to it in
+ its full glory. It's excellent!
+
+Files: lib/altar_makhleb_flame.gif
+Copyright: MedicineStorm
+License: CC0-1.0
+Source: https://opengameart.org/content/dungeon-crawl-32x32-tiles-supplemental
+
+Files: lib/awning.jpg
+Copyright: Guilhem Vellut
+License: CC-BY-2.0
+Source: https://commons.wikimedia.org/entity/M55750396
+
+Files: lib/bahnhof.jpg
+Copyright: Ansgar Koreng
+License: CC-BY-3.0
+Source: https://commons.wikimedia.org/entity/M24717706
+
+Files: lib/banke.jpg
+Copyright: Bellomonte
+License: CC0-1.0
+Source: https://commons.wikimedia.org/entity/M24717706
+
+Files: lib/betahaus.jpg
+Copyright: Toniher
+License: CC-BY-SA-3.0
+Source: https://commons.wikimedia.org/entity/M16761960
+
+Files: lib/boat.jpg
+Copyright: Norio NAKAYAMA
+License: CC-BY-2.0
+Source: https://commons.wikimedia.org/entity/M42674958
+
+Files: lib/bridge.jpg
+Copyright: Dietmar Rabich
+License: CC-BY-SA-4.0
+Source: https://commons.wikimedia.org/entity/M30453951
+
+Files: lib/cafe.jpg
+Copyright: (vincent desjardins)
+License: CC-BY-2.0
+Source: https://www.flickr.com/photos/endymion120/5446459418/
+
+Files: lib/champ.jpg
+Copyright: Taxiarchos228
+License: CC-BY-3.0
+Source: https://commons.wikimedia.org/entity/M11836274
+
+Files: lib/coin.png
+Copyright: Maplestrip
+License: CC0-1.0
+Source: https://commons.wikimedia.org/wiki/File:Super_Mario_Bros._coin_edited.PNG
+
+Files: lib/dame.jpg
+Copyright: Sharon Mollerus
+License: CC-BY-2.0
+Source: https://commons.wikimedia.org/entity/M53217214
+
+Files: lib/diamond.png
+Copyright: Kurt Kaiser
+License: CC0-1.0
+Source: https://commons.wikimedia.org/wiki/File:Diamond_Icon_Transparent.png
+
+Files: lib/farewell_64kbs.mp3
+Copyright: Cleyton Kauffman
+License: CC-BY-SA-3.0
+Source: https://opengameart.org/content/end-credits-theme
+Comment: "Farewell" by Cleyton Kauffman, downsampled from 320 kbps to 64 kbs.
+
+Files: lib/fx-neon.css
+Copyright: 2017 Giana <https://codepen.io/giana/details/qmKNeE>
+License: MIT
+Source: https://codepen.io/giana/details/qmKNeE
+Comment: <https://blog.codepen.io/documentation/licensing/>
+
+Files: lib/key.png
+Copyright: BizmasterStudios
+License: CC-BY-4.0
+Source: https://opengameart.org/content/key-icons
+
+Files: lib/liberty.jpg
+Copyright: GyozaDumpling
+License: CC-BY-SA-4.0
+Source: https://commons.wikimedia.org/entity/M91287309
+
+Files: lib/line.jpg
+Copyright: Bryan Ledgard
+License: CC-BY-2.0
+Source: https://commons.wikimedia.org/entity/M58245163
+
+Files: lib/love.png
+Copyright: El Rolo Ueeqee
+License: CC0-1.0
+Source: https://commons.wikimedia.org/wiki/File:Heart_pixelart.png
+
+Files: lib/pond.jpg
+Copyright: King of Hearts
+License: CC-BY-SA-4.0
+Source: https://commons.wikimedia.org/entity/M76827633
+
+Files: lib/rock.png
+Copyright: Blackwolfdave
+License: CC0-1.0
+Source: https://opengameart.org/content/rocky-background
+
+Files: lib/rubber-duck.png
+Copyright: Fwen
+License: CC-BY-SA-3.0
+Source: https://commons.wikimedia.org/wiki/File:Existenz.png
+
+Files: lib/sound-on.png lib/sound-off.png
+Copyright: Aaron Burke
+License: CC0-1.0
+Source: https://opengameart.org/content/sound-onoff-images
+
+Files: lib/station.jpg
+Copyright: Nasir Khan Saikat
+License: CC-BY-SA-3.0
+Source: https://commons.wikimedia.org/entity/M20722677
+
+Files: lib/tent.png
+Copyright: Senmou
+License: CC-BY-4.0
+Source: https://opengameart.org/content/tent-home
+
+Files: lib/treasure.png lib/treasure-open.png
+Copyright: Dan Sevenstar
+License: CC-BY-4.0
+Source: https://opengameart.org/content/treasure-chest-pixel-art-animation
+
+Files: lib/turm.jpg
+Copyright: Thomas Wolf, www.foto-tw.de
+License: CC-BY-SA-3.0
+Source: https://commons.wikimedia.org/entity/M19550787
+
+Files: lib/VT323-Regular.ttf
+Copyright: 2011, The VT323 Project Authors <peter.hull@oikoi.com>
+License: OFL-1.1
+Source: https://fonts.google.com/specimen/VT323
+Comment: <https://github.com/phoikoi/VT323/>
+
+Files: lib/wikimedia-ui-base-0.16.0.css
+Copyright: Wikimedia Foundation
+License: MIT
+Source: https://gerrit.wikimedia.org/g/wikimedia-ui-base/
+
+Files: src/snow.png
+Copyright: Spring, Lisa Krymova, and Timo Tijhof
+License: CC-BY-3.0
+Comment: Snow Tileset by Spring (CC0-1.0), from
+ <https://opengameart.org/content/very-basic-32x32-topdown-snow-tileset>.
+ .
+ Turtle by Lisa Krymova from the Noun Project (CC-BY-3.0),
+ from <https://thenounproject.com/term/pixel/546156/>.
+ .
+ Composition and colorization by Timo Tijhof.

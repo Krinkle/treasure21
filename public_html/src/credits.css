@@ -1,0 +1,52 @@
+/*! Copyright 2021 Timo Tijhof <https://timotijhof.net> | MIT License */
+
+.credits-section--altar {
+	text-align: center;
+	font-family: VT323, monospace;
+	/* adjust for monospace font being small */
+	font-size: 120%;
+}
+
+.credits-section--altar em {
+	font-style: normal;
+	color: orange;
+}
+
+.credits-text--large {
+	font-size: 120%;
+}
+
+.credits-music {
+	text-align: right;
+}
+.credits-kb-audio-wrap {
+	vertical-align: middle;
+	display: inline-block;
+	margin: .2rem .4rem;
+	line-height: 1.4rem;
+
+	background: no-repeat left center url(../lib/sound-on.png);
+	background-size: 16px;
+	padding: 0 0 0 16px;
+}
+.credits-kb-audio-wrap--muted {
+	background-image: url(../lib/sound-off.png);
+}
+
+.copyright-preview {
+	float: right;
+	display: inline-block;
+	vertical-align: middle;
+	width: 5em;
+	height: 4em;
+	margin-left: 0.5em;
+	background-size: contain;
+	background-position: right top;
+	background-repeat: no-repeat;
+
+	/* Let's see them pixels. */
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}

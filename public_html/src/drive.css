@@ -1,0 +1,86 @@
+/*! Copyright 2021 Timo Tijhof <https://timotijhof.net> | MIT License */
+
+blockquote.note--encrypted {
+	font-family: VT323, monospace;
+	font-style: initial;
+	text-transform: uppercase;
+
+	font-size: 120%; /* adjust for monospace being small */
+	background-color: var( --wmui-color-base0 );
+	color: lime;
+}
+
+blockquote.note--encrypted-reveal {
+	background: linear-gradient(
+		lime 0%,
+		lime 50%,
+		transparent 50%,
+		lime 53%,
+		transparent 53%,
+		transparent 100%
+	);
+	background-size: 100% 200%;
+	/* Support Safari 14+: Workaround broken -webkit-text-fill-color.
+
+	   Despite `-webkit-text-fill-color: transparent` originating in WebKit,
+	   this only works properly in Firefox and Chrome, and is broken in WebKit
+	   for almost every scenario other than a simple child-less non-linewrapping
+	   inline element.
+
+	   The text inside <p> tags renders invisible until the user tries to select
+	   and deleted it, after which it springs into view.
+	   The text inside <p><small> however is always visible. So...
+	   our workaround is to inner-wrap <p> with <span> for no reason other
+	   than this.
+
+	   https://bugs.webkit.org/show_bug.cgi?id=189152
+	   https://bugs.webkit.org/show_bug.cgi?id=213220
+	 */
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	/* stuttery, 64 cutting steps */
+	animation: note-textclip-reveal 3s steps(32, jump-none) 0s;
+	animation-fill-mode: forwards;
+}
+
+blockquote.note--encrypted-revealed {
+	animation: none;
+}
+
+@keyframes note-textclip-reveal {
+	0% {
+		background-position: 0 100%;
+	}
+	100% {
+		background-position: 0 0%;
+	}
+}
+
+blockquote.note--encrypted-scan {
+	background: linear-gradient(to right,
+		lime 0rem,
+		lime 5rem,
+		transparent 5rem,
+		transparent 6rem,
+		darkgreen 6.1rem,
+		lime 10rem,
+		lime 100rem
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	animation: note-textclip-scan 20s linear 0s infinite;
+	animation-fill-mode: forwards;
+}
+
+@keyframes note-textclip-scan {
+	0% {
+		background-position: -10rem 0;
+	}
+	100% {
+		background-position: 500rem 0;
+	}
+}

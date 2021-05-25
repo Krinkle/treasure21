@@ -1,0 +1,282 @@
+/*! Copyright 2021 Timo Tijhof <https://timotijhof.net> | MIT License */
+
+@import "../lib/wikimedia-ui-base-0.16.0.css";
+
+:root {
+	/* Extensions for dark mode */
+
+	/*
+		--wmui-color-base10:  hsl(210, 3%, 12.9%)
+		--wmui-color-red30:   hsl(0, 66.5%, 42.2%)
+		--wmui-color-green30: hsl(166.8, 74%, 30.2%)
+		--wmui-color-accent30: hsl(220, 54.1%, 35.9%)
+	*/
+	--wmui-color-red10: hsl(0, 66.5%, 12.9%);
+	--wmui-color-green10: hsl(166.8, 74%, 12.9%);
+	--wmui-color-accent10: hsl(220, 54.1%, 12.9%);
+}
+
+html {
+	background-color: var( --wmui-color-base0 );
+	font-family: var( --font-family-system-sans );
+	line-height: var( --line-height-base );
+	color: var( --wmui-color-base80 );
+	font-size: 10px;
+
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-size: 1.6rem;
+
+	max-width: 800px;
+	margin: 2rem auto 8rem auto;
+}
+
+main {
+	background: var( --wmui-color-base10 );
+	margin: 1rem 0;
+}
+main,
+.main-pad {
+	padding: 1rem 2rem 3rem 2rem;
+}
+.main--nopad {
+	padding: 0;
+}
+
+.main-spacer {
+	min-height: 6rem;
+	flex-grow: 1;
+}
+
+footer {
+	margin-top: 3rem;
+	color: var( --wmui-color-base70 );
+}
+.footer--muted {
+	text-align: right;
+	font-size: small;
+	color: var( --wmui-color-base50 );
+}
+
+h1 {
+	font-family: var( --font-family-serif );
+	font-weight: var( --font-weight-normal );
+
+	font-size: 3.2rem;
+	margin: 2.4rem 0;
+}
+
+p {
+	margin: 1rem 0;
+	line-height: 1.5;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-color: currentColor;
+	text-underline-position: under;
+}
+a:hover {
+	color: var( --wmui-color-accent90 );
+	text-decoration-color: var( --wmui-color-accent50 );
+}
+
+code {
+	background-color: var( --wmui-color-base20 );
+	color: var( --wmui-color-base100 );
+	font-family: var( --font-family-monospace );
+
+	display: inline-block;
+	padding: .2rem .4rem;
+	font-size: 1.4rem;
+}
+
+label:not([hidden]) {
+	display: block;
+}
+
+input[type="text"],
+input:not([type]) {
+	padding: 0.6rem 1rem;
+}
+/* Support Firefox 88+: Avoid touching padding-right on input[type="text"].
+   https://bugzilla.mozilla.org/show_bug.cgi?id=1713989 */
+input[type="number"] {
+	padding-top: 0.6rem;
+	padding-bottom: 0.6rem;
+	padding-left: 1rem;
+}
+
+blockquote,
+details.hint {
+	margin-top: 2rem;
+	margin-left: 4rem;
+	border-left: 5px solid var( --wmui-color-base20 );
+	padding-left: 1rem;
+}
+blockquote {
+	font-style: italic;
+}
+blockquote.hint:before {
+	font-style: normal;
+
+	display: block;
+	width: max-content;
+	margin-top: 1rem;
+	margin-left: -5rem;
+	background-color: var( --wmui-color-base20 );
+	padding: 0 1rem;
+	color: var( --wmui-color-base100 );
+	content: 'Hint: 👉 ';
+	transform: rotateZ(10deg) translateY(-1rem);
+}
+details.hint > summary {
+	display: block;
+	width: max-content;
+	margin-top: 1rem;
+	margin-left: -5rem;
+	background-color: var( --wmui-color-base20 );
+	padding: 0 1.3rem 0 1rem;
+	color: var( --wmui-color-base100 );
+	transform: rotateZ(10deg) translateY(-1rem);
+
+	cursor: pointer;
+}
+details.hint:not([open]) {
+	/* show at least part of the stick in the ground */
+	min-height: 5rem;
+}
+details.hint:not([open]) > summary::before {
+	content: "";
+	display: block;
+	width: 10em;
+	height: 1em;
+	background: var( --wmui-color-base20 );
+	position: absolute;
+	filter: blur(6px);
+	transform: rotateZ(-10deg);
+	top: 100%;
+	left: 6rem;
+}
+
+.list-hor {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.list--col {
+	column-width: 20em;
+	column-gap: 3em;
+}
+.list--col li {
+	/* Avoid breaking a single item's content over multiple columns. */
+	page-break-inside: avoid;
+	break-inside: avoid;
+}
+
+button {
+	background-color: var( --wmui-color-accent30 );
+	border-radius: var( --border-radius-base );
+	border: var( --border-width-base ) var( --border-style-base ) var( --wmui-color-base50 );
+	color: var( --wmui-color-base90 );
+	font-weight: var( --font-weight-semi-bold );
+
+	display: inline-block;
+	padding: 0.6rem 1rem;
+	font-size: 1.2rem;
+
+	cursor: pointer;
+}
+.btn-warn {
+	background-color: var( --wmui-color-red30 );
+}
+
+button:not(:disabled):hover,
+button::not(:disabled)focus {
+	cursor: pointer;
+	border-color: var( --wmui-color-accent90 );
+	box-shadow: 0px 0px 10px var( --wmui-color-accent50 );
+}
+.btn-warn:not(:disabled):hover,
+.btn-warn:not(:disabled):focus {
+	border-color: var( --wmui-color-red90 );
+	box-shadow: 0px 0px 10px var( --wmui-color-red50 );
+}
+
+button:not(:disabled):active {
+	background-color: var( --wmui-color-accent10 );
+	border-color: var( --wmui-color-accent50 );
+}
+.btn-warn:not(:disabled):active {
+	background-color: var( --wmui-color-red10 );
+	border-color: var( --wmui-color-red50 );
+}
+
+button:disabled {
+	background-color: var( --wmui-color-base10 );
+	border-color: var( --wmui-color-base30 );
+	color: var( --wmui-color-base30 );
+}
+
+.screen-reader-text {
+	display: block;
+	position: absolute;
+	clip: rect( 1px, 1px, 1px, 1px );
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.alert {
+	background-color: var( --wmui-color-base10 );
+	border: 1px solid var( --wmui-color-base50 );
+	margin: 1.6rem 0;
+	padding: 1.6rem 2.4rem;
+	color: var( --wmui-color-base100 );
+}
+.alert > p:first-child {
+	margin-top: 0;
+}
+.alert > p:last-child {
+	margin-bottom: 0;
+}
+.alert--warn {
+	background-color: var( --wmui-color-red10 );
+	border-color: var( --wmui-color-red50 );
+}
+.alert--success {
+	background-color: var( --wmui-color-green10 );
+	border-color: var( --wmui-color-green50 );
+}
+
+@keyframes vader-reveal {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.list--vader li {
+	animation: vader-reveal;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.img-pixelated {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}

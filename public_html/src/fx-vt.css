@@ -1,0 +1,32 @@
+/**
+ * Effect "VT Text Bounce".
+ */
+/*
+	Usage:
+
+	<h1 class="fx-vt-text">
+		<marquee direction="down" height="150" behavior="alternate" scrolldelay="16" scrollamount="1">
+			<marquee behavior="alternate" scrolldelay="16" scrollamount="1">
+				sample
+			</marquee>
+		</marquee>
+	</h1>
+*/
+
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(../lib/VT323-Regular.ttf) format('truetype');
+}
+
+.fx-vt-text {
+	font-family: VT323, monospace;
+	text-transform: uppercase;
+	font-size: 7rem;
+	line-height: 1;
+
+	background-color: #344151;
+	color: #EBB55F;
+}

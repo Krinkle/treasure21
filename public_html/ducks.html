@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ducks</title>
+	<meta name="robots" content="noindex,noimageindex,notranslate">
+	<link rel="canonical" href="ducks.html">
+	<!-- Hint: Globe. --><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+	<link rel="stylesheet" href="./src/main.css">
+	<link rel="stylesheet" href="./lib/fx-neon.css">
+</head>
+<body>
+	<div class="fx-neon-container">
+		<h1 class="fx-neon-text" data-text="ducks">ducks</h1>
+	</div>
+	<main>
+		<p>What do the cake and these ducks have in common?</p>
+		<!--
+
+			I mean, apart from both being made of sand...
+
+		-->
+		<img src="src/cake.jpg" width="354" height="266" alt="Half-eaten cake.">
+		<img src="lib/pond.jpg" width="400" height="266" alt="Ducks in a pond.">
+
+		<h2>Clues</h2>
+
+		<p>Resolve these to get additional hints.</p>
+
+		<ol class="list--vader" id="clues-list">
+		</ol>
+
+		<noscript>
+			<p class="alert alert--warn">This page requires JavaScript.</p>
+			<!--
+
+				This means you get the next clue by answering my silly questions.
+				Nothing more for you here!
+
+			-->
+		</noscript>
+
+		<button id="btn-start">First clue</button>
+
+	</main>
+	<footer class="footer--muted"><p><a href="./COPYRIGHT.html" target="_blank">COPYRIGHT</a></p></footer>
+	<script src="./src/ducks.js"></script>
+	<script>if (history.replaceState) history.replaceState(history.state, document.title, document.querySelector('link[rel="canonical"]').href + location.hash);</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/**
+ * Effect "Neon".
+ *
+ * Based on "CSS-only shimmering neon text".
+ * Copyright (c) 2017 Giana <https://codepen.io/giana/details/qmKNeE>
+ * License: MIT <https://blog.codepen.io/documentation/licensing/>
+ */
+/*
+	Usage (colors, animated):
+
+	<div class="fx-neon-container">
+		<h1 class="fx-neon-text" data-text="Sample">Sample</h1>
+		<div class="fx-neon-gradient"></div> <div class="fx-neon-spotlight"></div>
+	</div>
+
+	Usage (colors, still):
+
+	<div class="fx-neon-container">
+		<h1 class="fx-neon-text" data-text="Sample">Sample</h1>
+		<div class="fx-neon-gradient"></div>
+	</div>
+
+	Usage (greyscale):
+
+	<div class="fx-neon-container">
+		<h1 class="fx-neon-text" data-text="Sample">Sample</h1>
+	</div>
+*/
+
+.fx-neon-container {
+	overflow: hidden;
+	position: relative;
+	filter: contrast(110%) brightness(190%);
+}
+
+.fx-neon-text {
+	position: relative;
+	background: #000;
+	color: transparent;
+}
+.fx-neon-text::before,
+.fx-neon-text::after {
+	content: attr(data-text);
+	color: #fff;
+	filter: blur(0.02em);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0; /* PATCH(krinkle): Add this to fix text-align center. */
+	pointer-events: none;
+}
+.fx-neon-text::after {
+	mix-blend-mode: difference;
+}
+
+.fx-neon-gradient,
+.fx-neon-spotlight {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	pointer-events: none;
+	z-index: 10;
+}
+
+.fx-neon-gradient {
+	background: linear-gradient(45deg, red, blue);
+	mix-blend-mode: multiply;
+}
+
+@keyframes fx-neon-light {
+	100% {
+		transform: translate3d(50%, 50%, 0);
+	}
+}
+
+.fx-neon-spotlight {
+	animation: fx-neon-light 5s infinite linear;
+	background: radial-gradient(circle, white, transparent 25%) 0 0/25% 25%, radial-gradient(circle, white, black 25%) 50% 50%/12.5% 12.5%;
+	top: -100%;
+	left: -100%;
+	mix-blend-mode: color-dodge;
+}
+.fx-neon-text {
+	font: 700 100px -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0;
+}

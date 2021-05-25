@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "devDependencies": {
+    "eslint": "7.27.0",
+    "eslint-plugin-html": "6.1.2"
+  },
+  "scripts": {
+    "lint": "eslint --cache ."
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "es2017": true
+    },
+    "rules": {
+      "no-unused-vars": ["error", { "args": "none" }],
+      "no-constant-condition": 0
+    }
+  },
+  "eslintIgnore": [
+    "/.tox"
+  ]
+}

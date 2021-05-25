@@ -1,0 +1,328 @@
+/*! Copyright 2021 Timo Tijhof <https://timotijhof.net> | MIT License */
+
+.vault-board {
+	position: relative;
+	height: 500px;
+
+	/* Let's see them pixels. */
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+.vault-board::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	background-image: url(../lib/rock.png);
+	background-repeat: repeat;
+	background-size: 70%;
+	filter: brightness(1.4) hue-rotate(5deg);
+}
+.vault-board:focus {
+	outline: 1px solid var( --wmui-color-base10 );
+}
+.vault-board--started:not(.vault-board--final) {
+	/* Hide cursor in board area during game.
+	   Show before start (e.g. to click),
+	   and show in final state as well (e.g. to inspect). */
+	cursor: none;
+}
+/* Support: Touch events
+   Instead of disabling pointer-events on the board entirely,
+   disable it only on board children.
+   See vault.js#touchTargets */
+.vault-board--started > :not(.vault-zone--on) {
+	pointer-events: none;
+}
+
+.vault-object {
+	/* objects must have position relative or absolute,
+	   as otherwise they render behind the `::before` filter. */
+	position: absolute;
+}
+
+.vault-treasure {
+	box-sizing: border-box;
+	border: 2px solid #000;
+	background: rgba(0, 0, 0, 0.5);
+	background-repeat: no-repeat;
+	background-image: url(../lib/treasure.png);
+	background-position: center center;
+	background-size: 20%;
+	/* obscured */
+	mix-blend-mode: color-burn;
+	opacity: 0.8;
+}
+.vault-treasure.vault-zone--on {
+	mix-blend-mode: initial;
+	opacity: 1;
+	border-color: var( --wmui-color-base80 );
+}
+.vault-treasure--a {
+	background-color: rgba(190, 10, 10, 0.7);
+}
+.vault-treasure--b {
+	background-color: rgba(220, 190, 10, 0.7);
+}
+.vault-treasure--c {
+	background-color: rgba(10, 110, 220, 0.7);
+}
+.vault-treasure--d {
+	background-color: rgba(0, 200, 0, 0.7);
+}
+.vault-treasure--solved {
+	border-color: transparent;
+	background-image: none;
+	display: flex;
+	justify-content: center;
+}
+.vault-treasure img {
+	/* center the unclaimed token */
+	align-self: center;
+}
+.vault-board--final .vault-treasure {
+	display: none;
+}
+
+.vault-dino {
+	background: url(dino.png);
+	background-size: contain;
+	width: 50px;
+	height: 50px;
+	filter: invert() drop-shadow(0px 1px 0px #000);
+
+	/* Our JS logic is based on the dino's foot.
+	   The rendering here though, is from the top edge.
+	   Avoid visual confusing by rendering the dino
+	   one 1 step higher than it is.
+
+	   board height = 500px
+	   vault.js#steps = 20
+	   step size = 25px
+	*/
+	transform: translateY(-25px) scaleX(1);
+
+	top: 0%;
+	left: 0%;
+}
+.vault-dino::after {
+	/* shadow */
+	content: "";
+	display: block;
+	background: url(dino.png);
+	background-size: 100% 100%;
+	width: 50px;
+	height: 20px;
+	filter: invert(); /* undo parent */
+	opacity: 0.6;
+
+	position: absolute;
+	top: 80%;
+	left: 0;
+}
+.vault-dino--left,
+.vault-dino--left::after {
+	/* Support Firefox on Linux: Workaround broken scaleX.
+	   The element becomes invisible when scaleX(-1) is applied
+	   to an element with filters, and crisp image rendering, and ::after,
+	   or some unknown combination thereeof.
+	   Workaround by creating a separate version of the image for now, ugh.
+	*/
+	/* transform: translateY(-25px) scaleX(-1); */
+	background-image: url(dino-left.png);
+}
+/* a claimed token */
+.vault-dino--holding img {
+	filter: invert(); /* undo parent */
+
+	height: 24px;
+
+	position: absolute;
+	top: -10%;
+	left: -10%;
+}
+
+.vault-camp {
+	height: 50px;
+
+	background: no-repeat url(../lib/tent.png);
+	background-size: contain;
+	background-position: right center;
+
+	filter: drop-shadow(2px 2px 0px #000);
+}
+.vault-camp.vault-zone--on + .vault-cave {
+	/* hint at presence of cave zone */
+	outline-color: var( --wmui-color-base20 );
+}
+/* `display: flex` overrides native [hidden].
+   Use `:not([hidden])` to avoid leak before start. */
+.vault-cave:not([hidden]) {
+	/* obscure the cave outline */
+	outline: 2px solid rgba(255, 255, 255, 0.0);
+	display: flex;
+
+	box-sizing: border-box;
+	padding: 4px;
+
+}
+.vault-cave.vault-zone--on {
+	outline-color: var( --wmui-color-base90 );
+}
+.vault-cave::before {
+	content: attr(data-text);
+	display: block;
+	position: absolute;
+	top: 100%;
+	margin-top: 2px;
+	left: -2px;
+	right: -2px;
+	padding: 0 .4rem;
+	height: 1em;
+
+	font-family: VT323, monospace;
+	text-transform: uppercase;
+	font-size: 3rem;
+	line-height: 1;
+	background-color: #000;
+	color: #EBB55F;
+	text-align: center;
+
+	overflow: hidden;
+}
+/* a deposited token */
+.vault-cave img {
+	/* Works in Firefox 88, but not in Chrome 90 or Safari 14.
+	   In Chrome/Safari the images don't shrink correctly,
+	   thus N+2th image sticks out.
+	   Reduced test case: <https://codepen.io/Krinkle/pen/wvJrxQO>
+	object-fit: contain;
+	width: 100%;
+	height: auto;
+	*/
+
+	width: calc(100% / 4);
+	height: auto;
+	align-self: center;
+}
+
+.body--vault-modal-active {
+	overflow: hidden;
+	position: relative;
+}
+.vault-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 5%;
+}
+.vault-modal-autofocus:focus {
+	outline: 0;
+}
+.vault-modal-dialog {
+	margin: 8vh auto;
+	width: 420px;
+	/* clasp treasure hint is too long, set limit on height and let it scroll.  */
+	max-height: 80vh;
+	overflow-y: auto;
+	background: var( --wmui-color-base10 );
+	box-shadow: 0 2px 20px 10px var( --wmui-color-base0 );
+}
+.vault-modal-title {
+	display: block;
+	padding: .4rem 1rem;
+	text-align: center;
+	color: var( --wmui-color-base90 );
+	font-weight: bold;
+	border-bottom: var( --border-width-base ) var( --border-style-base ) var( --wmui-color-base20 );
+	/* label elements by default allow text selection, but they get a non-text cursor
+	   natively by default. Change this so as to advertise/encourage players to select
+	   and copy words from the clue into e.g. a search field elsewhere. */
+	cursor: text;
+}
+.vault-modal-dialog--treasure .vault-modal-title::before {
+	content: '';
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background: no-repeat url(../lib/key.png);
+	background-size: contain;
+	margin-right: 1rem;
+	vertical-align: middle;
+}
+/* the modal-content needs at least 5rem distance below the input field
+   before the cancel/submit buttons are, so as to make space for native
+   <input> validation message bubbles, which otherwise cover our Cancel
+   button. (Firefox 88)
+   This uses to set padding-bottom: 5rem, but its been reduced
+   since the hints cover the needed distance.
+   */
+.vault-modal-content {
+	padding: 1rem 2rem 3rem 2rem;
+}
+.vault-modal-content > details.hint {
+	margin-top: 5rem;
+}
+.vault-modal-content label {
+	display: block;
+}
+.vault-modal-foot {
+	background: var( --wmui-color-base0 );
+	color: var( --wmui-color-base90 );
+	text-align: center;
+	display: flex;
+	line-height: 2;
+}
+.vault-modal-foot > button {
+	line-height: 2;
+	border-radius: 0;
+	border: 0;
+	flex: 1;
+}
+
+.vault-clasp-decor {
+	/* like left border color of `blockquote` */
+	color: var( --wmui-color-base20 );
+}
+
+.vault-kb-volume-label {
+	display: block;
+	text-align: right;
+}
+.vault-kb-volume-wrap {
+	vertical-align: middle;
+	display: inline-block;
+	margin: .2rem .4rem;
+	line-height: 1.4rem;
+
+	background: no-repeat left center url(../lib/sound-on.png);
+	background-size: 16px;
+	padding: 0 0 0 16px;
+}
+.vault-kb-volume-wrap--muted {
+	background-image: url(../lib/sound-off.png);
+}
+
+.vault--credits {
+	background-image: url(../lib/rock.png);
+	background-repeat: repeat;
+}
+.vault--credits main,
+.vault--credits .vault-board::before {
+	background: transparent;
+}
+.vault--credits .fx-neon-container {
+	/* This effect internally requires a black background,
+	   (cannot simply make transparent), but we can fake it!
+
+	   Chromium bug: <https://bugs.chromium.org/p/chromium/issues/detail?id=1209137>
+	*/
+	mix-blend-mode: screen;
+}

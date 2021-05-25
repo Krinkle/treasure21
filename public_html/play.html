@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>play</title>
+	<meta name="robots" content="noindex,noimageindex,notranslate">
+	<link rel="canonical" href="./play.html">
+	<link rel="icon" href="./src/favicon.svg">
+	<link rel="stylesheet" href="./src/main.css">
+	<link rel="stylesheet" href="./src/fx-vt.css">
+	<link rel="stylesheet" href="./src/play.css">
+	<meta name="viewport" content="width=500">
+</head>
+<body>
+	<h1 class="fx-vt-text">
+		<marquee direction="down" height="150" behavior="alternate" scrolldelay="16" scrollamount="1">
+			<marquee behavior="alternate" scrolldelay="16" scrollamount="1">
+				play
+			</marquee>
+		</marquee>
+	</h1>
+	<main>
+		<blockquote class="hint">
+			To find the hint you seek, you must view the source that lies behind the curtain.
+		</blockquote>
+
+		<div id="next" class="alert alert--success" hidden>
+			<p><strong>
+				Well done! Almost there...
+			</strong></p><p><!--
+
+				Actually..., this "Almost there" doesn't apply to you yet.
+
+				You're on the right track with view-source, though.
+
+				Keep on scrollin'...
+
+			--></p>
+		</div>
+
+		<div class="grid" id="board" data-color="1" data-size="1"><div class="row"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="row"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="row"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="row"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div></div>
+
+		<!--
+
+			Hint: This term was popularized in 1807 by English polemicist William Cobbett.
+
+		-->
+
+		<table class="play-keyboard" id="play-keyboard" hidden><tr><td></td><td><button id="play-kb-up">&uarr;</button></td><td></td><td>&nbsp;</td><td><button id="play-kb-a">A</button></td></tr><tr><td><button id="play-kb-left">&larr;</button></td><td></td><td><button id="play-kb-right">&rarr;</button></td><td>&nbsp;</td><td><button id="play-kb-b">B</button></td></tr><tr><td></td><td><button id="play-kb-down">&darr;</button></td></tr></table>
+
+		<ul class="list--col">
+			<li><code>&uarr;</code>/<code>W</code>: Up</li>
+
+			<li><code>&darr;</code>/<code>S</code>: Down</li>
+
+			<li><code>&larr;</code>/<code>A</code>: Left</li>
+
+			<li><code>&rarr;</code>/<code>D</code>: Right</li>
+
+			<li><!-- Sorry about that smoked fish. Getting warmer though! --></li>
+
+			<li><code>Space</code>: Change color (A)</li>
+
+			<li><code>Control</code>: Change size (B)</li>
+
+			<li><!-- I promise this empty line is here for a reason. --></li>
+		</ul>
+
+		<!--
+
+			Actual hint:
+
+			This famous Code was first used in a 1985 video game called [[Gradius]].
+
+		-->
+
+		<noscript><p class="alert alert--warn">This page requires JavaScript.</p></noscript>
+	</main>
+	<script>if (history.replaceState) history.replaceState(history.state, document.title, document.querySelector('link[rel="canonical"]').href + location.hash)</script>
+	<script src="./src/play.js"></script>
+</body>
+</html>

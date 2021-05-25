@@ -1,0 +1,68 @@
+/*! Copyright 2021 Timo Tijhof <https://timotijhof.net> | MIT License */
+/*! Silk Icons by Mark James <http://www.famfamfam.com> | CC-BY-3.0 License */
+
+.ls-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 2rem;
+	grid-auto-rows: 1fr;
+}
+
+.ls-list li {
+	text-align: center;
+	line-height: 1;
+}
+.ls-list li a {
+	display: block;
+	height: 100%;
+	padding: .2rem .4rem;
+	text-decoration-line: none;
+}
+
+.ls-list li a:hover,
+.ls-list li a:focus {
+	background-color: var( --wmui-color-base20 );
+}
+
+.ls-list li a:focus {
+	outline: 2px solid var( --wmui-color-base80 );
+}
+
+.ls-item a::before {
+	content: '';
+	display: block;
+	background: no-repeat center center url(../lib/silk_icons/drive_error.png);
+	background-size: 4rem 4rem;
+	height: 4rem;
+	margin-bottom: .4rem;
+	box-sizing: border-box;
+
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+.ls-item--drive a::before {
+	background-image: url(../lib/silk_icons/drive.png);
+}
+.ls-item--album a::before {
+	background-image: url(../lib/silk_icons/film.png);
+}
+.ls-item--unknown-album a::before {
+	background-image: url(../lib/silk_icons/film_error.png);
+}
+.ls-item--hillarys-emails a::before {
+	/* Sorry, I couldn't resist the opportunity for this easter egg. No judging <3. */
+	background-image: url(../lib/silk_icons/email_error.png);
+}
+.ls-item--photo a::before {
+	background-image: url(../lib/silk_icons/picture.png);
+}
+.ls-item--unknown-photo a::before {
+	background-image: url(../lib/silk_icons/picture_error.png);
+}
+.ls-item--text a::before {
+	background-image: url(../lib/silk_icons/page_white_text.png);
+}

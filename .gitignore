@@ -1,0 +1,8 @@
+/.tox/
+/node_modules/
+/.eslintcache
+/package-lock.json
+
+# Keep the answers and their symlinks out of version control
+/build/answers.json
+/public_html/*.html

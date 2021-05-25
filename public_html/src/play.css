@@ -1,0 +1,70 @@
+/*! Copyright 2021 Timo Tijhof <https://timotijhof.net> | MIT License */
+
+.grid {
+	margin: 0 auto;
+	width: 410px;
+	height: 410px;
+}
+
+.cell {
+	vertical-align: middle;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background: #000;
+	outline: 1px solid #fff;
+
+	transition: transform 0.5s ease-out,
+		background-color 0.1s ease-out;
+}
+@media (prefers-reduced-motion) {
+	.cell {
+		transition: none;
+	}
+}
+
+.cell--cursor {
+	background: #fff;
+}
+.grid[data-color="1"] .cell--cursor {
+	background-color: orange;
+}
+.grid[data-color="2"] .cell--cursor {
+	background-color: cyan;
+}
+.grid[data-color="3"] .cell--cursor {
+	background-color: red;
+}
+.grid[data-color="4"] .cell--cursor {
+	background-color: magenta;
+}
+.grid[data-color="5"] .cell--cursor {
+	background-color: yellow;
+}
+.grid[data-color="6"] .cell--cursor {
+	background-color: #c8ccd1;
+}
+
+.grid[data-size="1"] .cell {
+	transform: scale(1);
+}
+.grid[data-size="2"] .cell {
+	transform: scale(0.7);
+}
+.grid[data-size="3"] .cell {
+	transform: scale(0.4);
+}
+.grid[data-size="4"] .cell {
+	transform: scale(0.1);
+	outline-width: 3px; /* Support Firefox 88+: Fix invisible subpixel outline. */
+}
+
+.play-keyboard {
+	margin: 0 auto;
+}
+
+.play-keyboard button {
+	font-size: 3rem;
+	padding: 1.2rem 2rem;
+	width: 100%;
+}
