@@ -1,4 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/Krinkle/treasure21
 
 Files: *
 Copyright: 2021 Timo Tijhof <https://timotijhof.net>
