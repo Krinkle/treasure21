@@ -68,6 +68,19 @@ function note() {
 		try {
 			toolHtmlDecrypted = await aesGcmDecrypt(toolHtmlEncrypted, passphraseCandidate);
 		} catch (e) {
+			if (passphraseCandidate.length > 3) {
+				const altBits = passphraseCandidate.split('');
+				altBits.splice(1, 0, ...altBits.splice(2, 1));
+				const alt = altBits.join('');
+				try {
+					await aesGcmDecrypt(toolHtmlEncrypted, alt);
+					inputTool.setCustomValidity(`Try spelling it correctly. It might just work!`);
+					inputTool.reportValidity();
+					return;
+				} catch (e) {
+					// Ignore
+				}
+			}
 			inputTool.setCustomValidity(`Sorry, that's not it.`);
 			inputTool.reportValidity();
 			return;
