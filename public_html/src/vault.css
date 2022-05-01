@@ -88,62 +88,61 @@
 	display: none;
 }
 
-.vault-dino {
+.vault-dino::after {
+	content: "";
+	display: block;
 	background: url(dino.png);
 	background-size: contain;
 	width: 50px;
 	height: 50px;
 	filter: invert() drop-shadow(0px 1px 0px #000);
 
+	transform: scaleX(1);
+}
+.vault-dino {
 	/* Our JS logic is based on the dino's foot.
 	   The rendering here though, is from the top edge.
-	   Avoid visual confusing by rendering the dino
-	   one 1 step higher than it is.
+	   Avoid visual confusion by rendering the dino
+	   one step higher.
 
 	   board height = 500px
 	   vault.js#steps = 20
 	   step size = 25px
 	*/
-	transform: translateY(-25px) scaleX(1);
-
-	top: 0%;
-	left: 0%;
+	transform: translateY(-25px);
 }
-.vault-dino::after {
-	/* shadow */
+.vault-dino::before {
+	/* shadow first to avoid shadow overlapping on dino feet */
 	content: "";
 	display: block;
-	background: url(dino.png);
-	background-size: 100% 100%;
 	width: 50px;
 	height: 20px;
-	filter: invert(); /* undo parent */
-	opacity: 0.6;
+	background: url(dino.png);
+	background-size: 100% 100%;
+	opacity: 0.8;
 
 	position: absolute;
 	top: 80%;
 	left: 0;
 }
-.vault-dino--left,
-.vault-dino--left::after {
-	/* Support Firefox on Linux: Workaround broken scaleX.
-	   The element becomes invisible when scaleX(-1) is applied
-	   to an element with filters, and crisp image rendering, and ::after,
-	   or some unknown combination thereeof.
-	   Workaround by creating a separate version of the image for now, ugh.
-	*/
-	/* transform: translateY(-25px) scaleX(-1); */
-	background-image: url(dino-left.png);
+.vault-dino--left::after,
+.vault-dino--left::before {
+	transform: scaleX(-1);
 }
+
 /* a claimed token */
 .vault-dino--holding img {
-	filter: invert(); /* undo parent */
-
 	height: 24px;
+	filter: drop-shadow(0px 1px 0px #000);
 
 	position: absolute;
 	top: -10%;
 	left: -10%;
+}
+.vault-dino--holding.vault-dino--left img {
+	left: initial;
+	right: -10%;
+	transform: scaleX(-1);
 }
 
 .vault-camp {
