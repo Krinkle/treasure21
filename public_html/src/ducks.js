@@ -124,25 +124,14 @@ async function main() {
 	}, { once: true });
 
 	// Development:
-	let newSecret = `<p>Each photo has metadata within its image file.
-			Save the photos on your device, and look for a way to access this location information.</p>
-		<p>Linux: The <a href="https://en.wikipedia.org/wiki/Geeqie" target="_blank">Geeqie</a>
-			viewer shows GPS coordinates (It seems Xviewer does not).</p>
-		<p>macOS: Using the default <em>Preview</em> app, check under <code>Tools &rarr; Location</code>.</p>
-		<p>iOS: Save to camera roll, view there, swipe down.</p>
-		<p>Windows: Right-click on the file, select "Properties", then under "Details" look for GPS.</p>
-		<p>Use <a href="https://nominatim.openstreetmap.org/" target="_blank">OpenStreetMap</a> to
-			visualise the location. Some image viewers display GPS locations in a format that map applications
-			do not understand. The best format to write your search in is like <code>10 20 30 N, 40 50 60 W</code>.<br>
-			Some image viewers display this differently, and you need to change it in that case. For example:<br>
-			<code>10 deg 20' 30" N, 40 deg 50' 60" W</code> (remove the word "deg"),<br>
-			<code>Lat 10; 20; 30; Long 40; 50; 60;</code> (remove semi colons, change Lat/Long to N/W).</p>`;
-	console.log(await aesGcmEncrypt(newSecret, 'gps'));
+	// let newSecret = `<p>...</p>`;
+	// console.log(await aesGcmEncrypt(newSecret, 'gps'));
 }
 
 main();
 
 /*! (c) Chris Veness | MIT Licence | https://gist.github.com/Krinkle/58dd2281c033e3626ce2e7f20e85aaf4 */
+// eslint-disable-next-line no-unused-vars
 async function aesGcmEncrypt(plaintext, password) {
     const pwUtf8 = new TextEncoder().encode(password);
     const pwHash = await crypto.subtle.digest('SHA-256', pwUtf8);
