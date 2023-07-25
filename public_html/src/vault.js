@@ -751,12 +751,12 @@ function main() {
 		addTreature({
 			object: document.getElementById('vault-treasure-c'),
 			where: { top: BOARD_STEPS - 4, left: 0, width: 5, height: 4 },
-			clueText: 'Do you C what I mean?',
-			questHtml: '<p>Encoded message: <code>Bee as you are</code>.</p>',
-			hintText: 'Do I need to spell it out?',
+			clueText: 'Decode 👤 == 🫖?',
+			questHtml: '<p>Decode this message: <code>Are you as tea?</code>.</p>',
+			hintText: 'Allow me to spell it out this 4-letter word.',
 			maxLength: 5,
 			token: 'lib/diamond.png',
-			secretEncrypted: 'b93faf18756d55e5e87ed426s8SPeLSN8NK7ovDD05HsMQFPLTPEuUC2s4Cyr8nl6Lo=',
+			secretEncrypted: 'ac2b85cb9699b6d6437089bd7wZgtZNlpCSrG7QURCwyWhAZl+XB9oCmxracLwLjghk=',
 			caveSlot: 2,
 		});
 
