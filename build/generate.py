@@ -195,11 +195,20 @@ generate_copyright_html(
 start = 'index.html'
 finish = 'credits.html'
 
-# The answers.json file must be structured like:
-#
-# {
-#   "index.html": "<answerhere>.html"
-# }
+'''
+The answers.json file must be structured like:
+
+{
+  "index.html": "chicken.html",
+  "play.html": "ANSWER.html",
+  "drive.html": "ANSWER.html",
+  "translate.html": "ANSWER.html",
+  "ducks.html": "ANSWER.html",
+  "vault.html": "ANSWER.html",
+  "ziploc.html": "ANSWER.html"
+}
+'''
+
 ansers_file = os.path.join(build_dir, 'answers.json')
 with open(ansers_file, 'r') as f:
     answers_json = f.read()
@@ -220,6 +229,6 @@ make_redirects(
     answers=answers,
     extra_pairs=[
         # Bonus
-        (answers['ziplock.html'], 'ziploc.html')
+        (answers['ziploc.html'], 'ziploc.html')
     ]
 )

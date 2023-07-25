@@ -22,17 +22,15 @@ tox -v
 
 ## Deployment
 
+<!--
+
+Sync and potentially delete files on the remote.
+(Make sure you get the remote right, including trailing slash in both paths,
+as otherwise you might end up deleting everything there!)
+
+-->
+
 ```
 rsync -av -e ssh --exclude=".DS_Store" public_html/ timotijhof.net:domains/timotijhof.net/treasure21-sub-public_html/
 ```
 
-<!--
-
-```
-# Sync and potentially delete files on the remote
-# (make sure you get the remote right, including trailing slash in both paths,
-# for otherwise you will delete everything there)
-echo rsync -av -e ssh --exclude=".DS_Store" --delete-after  public_html/ example.org:some_place_nice/
-```
-
--->

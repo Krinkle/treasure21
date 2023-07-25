@@ -117,6 +117,10 @@ details.hint {
 	border-left: 5px solid var( --wmui-color-base20 );
 	padding-left: 1rem;
 }
+details.hint--reference[open] {
+	padding-bottom: 2rem;
+	margin-bottom: 4rem;
+}
 blockquote {
 	font-style: italic;
 }
@@ -145,6 +149,9 @@ details.hint > summary {
 
 	cursor: pointer;
 }
+details.hint--reference > summary {
+	transform: rotateZ(0) translateY(-1rem);
+}
 details.hint:not([open]) {
 	/* show at least part of the stick in the ground */
 	min-height: 5rem;
@@ -160,6 +167,13 @@ details.hint:not([open]) > summary::before {
 	transform: rotateZ(-10deg);
 	top: 100%;
 	left: 6rem;
+}
+details.hint--reference:not([open]) > summary::before {
+	transform: none;
+}
+
+dt {
+	font-weight: bold;
 }
 
 .list-hor {
