@@ -1,4 +1,4 @@
-# Krinkle Treasure Hunt 2021
+# Krinkle Treasure Hunt
 
 ## Development
 

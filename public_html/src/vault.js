@@ -33,7 +33,7 @@ function main() {
 	// That is useful! (And besides, if it didn't read this value, we'd have to do
 	// something else to reset the UI, as otherwise the UI and our state would mismatch).
 	const VOLUME_DEFAULT = volumeInput.value || 0.3;
-	const audioMain = new Audio('./lib/0ad_08bitbonus_48kbs.mp3');
+	const audioMain = new Audio('/lib/0ad_08bitbonus_48kbs.mp3');
 	const audioState = {
 		startedMain: false
 	};
@@ -707,7 +707,7 @@ function main() {
 			contentHtml: `
 			<p>Your mission, should you choose to accept it, is to find
 			and unlock four treasures.</p>
-			<p>Each treasure holds a key to deciphering the main answer.</p>`,
+			<p>Each treasure holds a key to deciphering part of the answer to this challenge. Bring each treasure back to your campsite to unscramble the answer.</p>`,
 		});
 		dinoLock = false;
 	}
@@ -719,11 +719,11 @@ function main() {
 		addTreature({
 			object: document.getElementById('vault-treasure-a'),
 			where: { top: 0, left: 0, width: 5, height: 4 },
-			clueText: 'Eyes Ate, Deeze Tree',
+			clueText: 'Ayis Ate Dee\'ez Tree 😋 🌳',
 			questHtml: '<p>Encoded message: <code>7 4 0 17 19 18</code></p>',
-			hintText: `Deeze Tree. But, if Bees To, then Dee would've been Fore.`,
+			hintText: `Dee'ez Tree and Ayis Ate. But, if Bee were To, then Dee would've been Fore.`,
 			maxLength: 20,
-			token: 'lib/love.png',
+			token: '/lib/love.png',
 			secretEncrypted: '51f22275a722f8a6aadeed69TiDRV465+Io58Kw78//onmnLLcrKh8rtogx4rwS1+pg=',
 			caveSlot: 0,
 		});
@@ -734,16 +734,16 @@ function main() {
 			clueText: 'Clasp on a cope',
 			questHtml: `<p>Encoded message:</p><blockquote>
 					Dit dah dit dit<span class="vault-clasp-decor">.</span><br>
-					Dah fah lah<span class="vault-clasp-decor">...</span><br>
-					Dit fah sit<span class="vault-clasp-decor">.</span><br>
-					Sit pit<span class="vault-clasp-decor">!</span><br>
-					Fah lah fah<span class="vault-clasp-decor">!!!</span><br>
+					Dah dah dah<span class="vault-clasp-decor">...</span><br>
+					Dit dah dit<span class="vault-clasp-decor">.</span><br>
+					Dit dit<span class="vault-clasp-decor">!</span><br>
+					Dah dah dah<span class="vault-clasp-decor">!!!</span><br>
 					Dah<span class="vault-clasp-decor">.</span>
 				</blockquote>`,
 			hintHtml: `<p>This international code bears the same name as the clasp of a [[Cope]].</p>
 			<p>The message encodes one letter per line.</p>`,
 			maxLength: 20,
-			token: 'lib/rubber-duck.png',
+			token: '/lib/rubber-duck.png',
 			secretEncrypted: 'a4175e0557d8828cc1d71ad6z91G9SPbcFaFZcf9n5WYsO6/U21x0xzCnqohQmynN+0=',
 			caveSlot: 1,
 		});
@@ -751,11 +751,11 @@ function main() {
 		addTreature({
 			object: document.getElementById('vault-treasure-c'),
 			where: { top: BOARD_STEPS - 4, left: 0, width: 5, height: 4 },
-			clueText: 'Decode 👤 == 🫖?',
-			questHtml: '<p>Decode this message: <code>Are you as tea?</code>.</p>',
-			hintText: 'Allow me to spell it out this 4-letter word.',
+			clueText: 'I\'m a teapot 🫖',
+			questHtml: '<p>Decode this message: <code>Are you as tea</code>?</p>',
+			hintText: 'This 4-letter word may erode when exposed to air. Try reading the message out loud!',
 			maxLength: 5,
-			token: 'lib/diamond.png',
+			token: '/lib/diamond.png',
 			secretEncrypted: 'ac2b85cb9699b6d6437089bd7wZgtZNlpCSrG7QURCwyWhAZl+XB9oCmxracLwLjghk=',
 			caveSlot: 2,
 		});
@@ -767,7 +767,7 @@ function main() {
 			questHtml: '<p>The answer is 7!</code>',
 			hintText: `Christian Kramp. The "A000142" sequence might help, too.`,
 			maxLength: 5,
-			token: 'lib/coin.png',
+			token: '/lib/coin.png',
 			secretEncrypted: 'ac78cb33c6e6e9cdc3323336kkZ2O0rAQBEJyaSzDSnLHZkY3Y8AtS+MAeHH1FQrRA4=',
 			caveSlot: 3,
 		});

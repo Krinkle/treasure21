@@ -46,7 +46,10 @@ main,
 }
 
 .main-spacer {
-	min-height: 6rem;
+	/* If changing this, make sure translate.html still has shows
+	   at least part of one dictionary peaking out above the fold
+	   on common screen sizes. */
+	min-height: 3rem;
 	flex-grow: 1;
 }
 
@@ -183,6 +186,7 @@ dt {
 	list-style: none;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .list--col {

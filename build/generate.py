@@ -67,7 +67,7 @@ def make_redirects(public_html, start, finish, order, answers,
         prevPage = page
 
     redirect_pairs.append((answers[prevPage], finish))
-    redirect_pairs.append(*extra_pairs)
+    redirect_pairs.extend(extra_pairs)
 
     print('Updating redirects...')
     # print(*redirect_pairs, sep='\n')
@@ -228,7 +228,10 @@ make_redirects(
     ],
     answers=answers,
     extra_pairs=[
-        # Bonus
-        (answers['ziploc.html'], 'ziploc.html')
+        # Auto-correct common mistakes.
+        ('drive/BERLIN/' + answers['drive.html'], '../../translate.html'),
+        ('drive/' + answers['drive.html'], '../translate.html'),
+        # For the bonus challenge.
+        (answers['ziploc.html'], 'ziploc.html'),
     ]
 )
