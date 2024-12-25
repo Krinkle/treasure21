@@ -1,3 +1,15 @@
 AddDefaultCharset utf-8
 AddCharset utf-8 .js
 AddCharset utf-8 .css
+
+Redirect 301 /NEWYORK.html /drive/NEW_YORK.html
+Redirect 301 /NEW_YORK.html /drive/NEW_YORK.html
+Redirect 301 /new_york.html /drive/NEW_YORK.html
+Redirect 301 /drive/NEWYORK.html /drive/NEW_YORK.html
+Redirect 301 /drive/newyork.html /drive/NEW_YORK.html
+Redirect 301 /drive/new_york.html /drive/NEW_YORK.html
+
+Redirect 301 /BERLIN.html /drive/BERLIN.html
+Redirect 301 /drive/berlin.html /drive/BERLIN.html
+Redirect 301 /drive/NEW_YORK/BERLIN.html /drive/BERLIN.html
+Redirect 301 /drive/NEW_YORK/berlin.html /drive/BERLIN.html

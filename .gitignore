@@ -4,5 +4,8 @@
 /package-lock.json
 
 # Keep the answers and their symlinks out of version control
+# Add canonical pages to Git with `git add -f` instead
 /build/answers.json
 /public_html/*.html
+/public_html/drive/*.html
+/public_html/drive/*/*.html

@@ -45,7 +45,7 @@ function main() {
 	};
 
 	let memory = [];
-	let encryptedSecret = '658dd473d582bfc9bf56524eWjPIOkS3t8QdHnJEj9GAwa0M5QtmxAYhygWjxSF+uDQiOtdx19fkEvKBehkg6IIKubLJk3BXTaATJY+HzGXRZoyk1D4Gxk1xxtJ+y8rFOZDILKg48AVC20P3B6ZVXQf/12o=';
+	let encryptedSecret = 'adcab87588026df587055fdb45HbIxhOOyLuxMT3AzHq9sohec5aqI1uSa27fX6AUkTsEQF9JI0WwCXp80Vq4c05kbgjs69nJoyabjBEyU4Gge5ktbVd/jqPKcqGkM3yICCH1k5Q0Vrdmhnpf0PNRfnhQg==';
 
 	function at(pos) {
 		return grid.children[pos.row] && grid.children[pos.row].children[pos.col];
@@ -232,7 +232,7 @@ function main() {
 	// init
 	at(pos).classList.add('cell--cursor');
 
-	const helperText = `📢 Hello. For these challenges, it'll be easier for you if you use "view source" instead of "inspect element". You're welcome. `;
+	const helperText = `📢 Hello. For these challenges, it'll be easier if you use "view source" instead of "inspect element". Enjoy!`;
 	console.log(helperText);
 	document.body.prepend(document.createComment(helperText));
 }

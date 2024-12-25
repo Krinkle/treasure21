@@ -4,11 +4,11 @@
 	<meta charset="utf-8">
 	<title>play</title>
 	<meta name="robots" content="noindex,noimageindex,notranslate">
-	<link rel="canonical" href="./play.html">
-	<link rel="icon" href="./src/favicon.svg">
-	<link rel="stylesheet" href="./src/main.css">
-	<link rel="stylesheet" href="./src/fx-vt.css">
-	<link rel="stylesheet" href="./src/play.css">
+	<link rel="canonical" href="/play.html">
+	<link rel="icon" href="/src/favicon.svg">
+	<link rel="stylesheet" href="/src/main.css">
+	<link rel="stylesheet" href="/src/fx-vt.css">
+	<link rel="stylesheet" href="/src/play.css">
 	<meta name="viewport" content="width=500">
 </head>
 <body>
@@ -48,23 +48,22 @@
 
 		<table class="play-keyboard" id="play-keyboard" hidden><tr><td></td><td><button id="play-kb-up">&uarr;</button></td><td></td><td>&nbsp;</td><td><button id="play-kb-a">A</button></td></tr><tr><td><button id="play-kb-left">&larr;</button></td><td></td><td><button id="play-kb-right">&rarr;</button></td><td>&nbsp;</td><td><button id="play-kb-b">B</button></td></tr><tr><td></td><td><button id="play-kb-down">&darr;</button></td></tr></table>
 
-		<ul class="list--col">
-			<li><code>&uarr;</code>/<code>W</code>: Up</li>
+		<!--
+			Sorry about that smoked fish. Getting warmer though!
+		-->
 
-			<li><code>&darr;</code>/<code>S</code>: Down</li>
-
-			<li><code>&larr;</code>/<code>A</code>: Left</li>
-
-			<li><code>&rarr;</code>/<code>D</code>: Right</li>
-
-			<li><!-- Sorry about that smoked fish. Getting warmer though! --></li>
-
-			<li><code>Space</code>: Change color (A)</li>
-
-			<li><code>Control</code>: Change size (B)</li>
-
-			<li><!-- I promise this empty line is here for a reason. --></li>
-		</ul>
+		<div class="list-hor">
+			<ul>
+				<li><code>&uarr;</code>/<code>W</code>: Up</li>
+				<li><code>&darr;</code>/<code>S</code>: Down</li>
+				<li><code>&larr;</code>/<code>A</code>: Left</li>
+				<li><code>&rarr;</code>/<code>D</code>: Right</li>
+			</ul>
+			<ul>
+				<li><code>Space</code>: Change color (A) (I)</li>
+				<li><code>Control</code>/<code>Alt</code>: Change size (B) (II)</li>
+			</ul>
+		</div>
 
 		<!--
 
@@ -77,6 +76,6 @@
 		<noscript><p class="alert alert--warn">This page requires JavaScript.</p></noscript>
 	</main>
 	<script>if (history.replaceState) history.replaceState(history.state, document.title, document.querySelector('link[rel="canonical"]').href + location.hash)</script>
-	<script src="./src/play.js"></script>
+	<script src="/src/play.js"></script>
 </body>
 </html>
