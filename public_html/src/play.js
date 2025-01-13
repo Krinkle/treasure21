@@ -48,7 +48,12 @@ function main() {
 	let encryptedSecret = 'adcab87588026df587055fdb45HbIxhOOyLuxMT3AzHq9sohec5aqI1uSa27fX6AUkTsEQF9JI0WwCXp80Vq4c05kbgjs69nJoyabjBEyU4Gge5ktbVd/jqPKcqGkM3yICCH1k5Q0Vrdmhnpf0PNRfnhQg==';
 
 	function at(pos) {
-		return grid.children[pos.row] && grid.children[pos.row].children[pos.col];
+		// Support Safari 17-18: Workaround https://bugs.webkit.org/show_bug.cgi?id=285705
+		if (pos.row >= 0 && pos.row < grid.children.length &&
+			pos.col >= 0 && pos.col < grid.children[pos.row].children.length
+		) {
+			return grid.children[pos.row] && grid.children[pos.row].children[pos.col];
+		}
 	}
 
 	function updateDoctitle(diff) {
