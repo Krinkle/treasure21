@@ -20,12 +20,21 @@ function main() {
 	let color = 1;
 	let size = 1;
 	let pos = { row: 1, col: 1 };
-	const ACTION_UP = 'ArrowUp';
-	const ACTION_DOWN = 'ArrowDown';
-	const ACTION_LEFT = 'ArrowLeft';
-	const ACTION_RIGHT = 'ArrowRight';
-	const ACTION_COLOR = 'Space';
-	const ACTION_SIZE = 'Control';
+	const ACTION_UP = 'ACTION_UP';
+	const ACTION_DOWN = 'ACTION_DOWN';
+	const ACTION_LEFT = 'ACTION_LEFT';
+	const ACTION_RIGHT = 'ACTION_RIGHT';
+	const ACTION_COLOR = 'ACTION_COLOR';
+	const ACTION_SIZE = 'ACTION_SIZE';
+	const htmlToAction = {
+		'play-kb-up': ACTION_UP,
+		'play-kb-down': ACTION_DOWN,
+		'play-kb-left': ACTION_LEFT,
+		'play-kb-right': ACTION_RIGHT,
+		'play-kb-a': ACTION_COLOR,
+		'play-kb-b': ACTION_SIZE
+	};
+	const actionToHtml = Object.fromEntries(Object.entries(htmlToAction).map(([k, v]) => [v, k]));
 
 	let baseDoctitle = document.title.replace(/./g, '-');
 	let sizeEmojis = {
@@ -45,7 +54,7 @@ function main() {
 	};
 
 	let memory = [];
-	let encryptedSecret = 'adcab87588026df587055fdb45HbIxhOOyLuxMT3AzHq9sohec5aqI1uSa27fX6AUkTsEQF9JI0WwCXp80Vq4c05kbgjs69nJoyabjBEyU4Gge5ktbVd/jqPKcqGkM3yICCH1k5Q0Vrdmhnpf0PNRfnhQg==';
+	let encryptedSecret = '2c30947f76d0786f51fc995dLQA6B9eBey3Vzq1wU98cQ4i2i8PSkTdEilZqfW/NSWv3zngXLBDYRCp4sO1Jv0ZXLwb2nWpWGYKxhwBaJWUzQn0OH0CJd47MAJQZqgqvR1QKBnQxiYoNHt41cWg/jOXYfg==';
 
 	function at(pos) {
 		// Support Safari 17-18: Workaround https://bugs.webkit.org/show_bug.cgi?id=285705
@@ -109,6 +118,19 @@ function main() {
 		nextNode.hidden = false;
 	}
 
+	function animate(action) {
+		const el = document.getElementById(actionToHtml[action]);
+		if (el) {
+			el.animate(
+				[
+					{ filter: 'brightness(2)' },
+					{ filter: 'brightness(1)' }
+				],
+				{ duration: 200 }
+			);
+		}
+	}
+
 	function input(action) {
 		let newPos = { row: pos.row, col: pos.col };
 		switch (action) {
@@ -169,36 +191,32 @@ function main() {
 		memory.push(action);
 		memory = memory.slice(-10);
 		setTimeout(attempt);
+		animate(action);
 	}
 
 	// Use keydown instead of keyup, to allow fun with long press!
 	document.addEventListener('keydown', e => {
 		switch (e.code) {
-			case 'KeyW':
 			case 'ArrowUp':
 				input(ACTION_UP);
 				break;
-			case 'KeyS':
 			case 'ArrowDown':
 				input(ACTION_DOWN);
 				break;
-			case 'KeyA':
 			case 'ArrowLeft':
 				input(ACTION_LEFT);
 				break;
-			case 'KeyD':
 			case 'ArrowRight':
 				input(ACTION_RIGHT);
 				break;
-			case 'Space':
+			case 'KeyA':
+			case 'Numpad1':
+			case 'Digit1':
 				input(ACTION_COLOR);
 				break;
-			case 'Alt':
-			case 'AltLeft':
-			case 'AltRight':
-			case 'Control':
-			case 'ControlLeft':
-			case 'ControlRight':
+			case 'KeyB':
+			case 'Numpad2':
+			case 'Digit2':
 				input(ACTION_SIZE);
 				break;
 			default:
@@ -208,14 +226,8 @@ function main() {
 		e.preventDefault();
 	});
 
-	[
-		[ 'play-kb-up', ACTION_UP ],
-		[ 'play-kb-down', ACTION_DOWN ],
-		[ 'play-kb-left', ACTION_LEFT ],
-		[ 'play-kb-right', ACTION_RIGHT ],
-		[ 'play-kb-a', ACTION_COLOR ],
-		[ 'play-kb-b', ACTION_SIZE ]
-	].forEach( ( [ id, action ] ) => {
+	for (const id in htmlToAction) {
+		const action = htmlToAction[id];
 		const el = document.getElementById(id);
 		if (el) {
 			el.addEventListener('click', e => {
@@ -228,11 +240,8 @@ function main() {
 				e.preventDefault();
 			});
 		}
-	} );
-
-	if ('ontouchstart' in document) {
-		document.querySelector('#play-keyboard').hidden = false;
 	}
+	document.querySelector('#play-keyboard').hidden = false;
 
 	// init
 	at(pos).classList.add('cell--cursor');
