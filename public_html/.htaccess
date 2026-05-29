@@ -4,12 +4,18 @@ AddCharset utf-8 .css
 
 Redirect 301 /NEWYORK.html /drive/NEW_YORK.html
 Redirect 301 /NEW_YORK.html /drive/NEW_YORK.html
+Redirect 301 /newyork.html /drive/NEW_YORK.html
 Redirect 301 /new_york.html /drive/NEW_YORK.html
+Redirect 301 /drive/NEWYORK /drive/NEW_YORK.html
 Redirect 301 /drive/NEWYORK.html /drive/NEW_YORK.html
+Redirect 301 /drive/newyork /drive/NEW_YORK.html
 Redirect 301 /drive/newyork.html /drive/NEW_YORK.html
 Redirect 301 /drive/new_york.html /drive/NEW_YORK.html
 
 Redirect 301 /BERLIN.html /drive/BERLIN.html
+Redirect 301 /berlin.html /drive/BERLIN.html
+Redirect 301 /drive/berlin /drive/BERLIN.html
+Redirect 301 /drive/berlin/ /drive/BERLIN.html
 Redirect 301 /drive/berlin.html /drive/BERLIN.html
 Redirect 301 /drive/NEW_YORK/BERLIN.html /drive/BERLIN.html
 Redirect 301 /drive/NEW_YORK/berlin.html /drive/BERLIN.html

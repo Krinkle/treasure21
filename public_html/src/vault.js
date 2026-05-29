@@ -707,7 +707,7 @@ function main() {
 			contentHtml: `
 			<p>Your mission, should you choose to accept it, is to find
 			and unlock four treasures.</p>
-			<p>Each treasure holds a key to deciphering part of the answer to this challenge. Bring each treasure back to your campsite to unscramble the answer.</p>`,
+			<p>Each treasure holds a key to deciphering part of the answer to this puzzle. Bring each treasure back to your campsite to unscramble the answer.</p>`,
 		});
 		dinoLock = false;
 	}

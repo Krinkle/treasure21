@@ -10,12 +10,12 @@ Utility script for generating the redirect-like intermediary URLs.
 
 The redirects exist so that:
 
-* Challenges can be easily re-ordered during development.
-* There is no previous answer in the address bar while solving a challenge
+* Puzzles can be easily re-ordered during development.
+* There is no previous answer in the address bar while solving a puzzle
   (might distract).
-* The URL matches the challenge title (and no restriction on the name
-  of a challenge).
-* You can (un)intentionally share links to a challenge with only a
+* The URL matches the puzzle title (and no restriction on the name
+  of a puzzle).
+* You can (un)intentionally share links to a puzzle with only a
   minor spoiler, and not reveal an answer. By extent, this also means
   one is also less likely to (accidentally) be faced with answers
   through exposure to chat logs, search engines, archive.org, etc.
@@ -44,8 +44,8 @@ redirects):
   whether to safely overwrite an uncommitted file.
 
 * The ability to differentiate client-side between landing on an
-  answer vs a plain challenge URL lended itself to a "convenient"
-  hack in the bonus challenge.
+  answer vs a plain puzzle URL lended itself to a "neat"
+  hack within the bonus puzzle.
 '''
 
 # Copyright 2021 Timo Tijhof <https://timotijhof.net> | MIT License
@@ -231,7 +231,7 @@ make_redirects(
         # Auto-correct common mistakes.
         ('drive/BERLIN/' + answers['drive.html'], '../../translate.html'),
         ('drive/' + answers['drive.html'], '../translate.html'),
-        # For the bonus challenge.
+        # For the bonus puzzle.
         (answers['ziploc.html'], 'ziploc.html'),
     ]
 )

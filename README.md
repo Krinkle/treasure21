@@ -8,10 +8,10 @@ using [any method you like](https://gist.github.com/willurd/5720255).
 For example:
 
 ```
-python3 -m http.server 4000 -d public_html/
+python3 -m http.server 4001 -d public_html/
 ```
 
-Then navigate to <http://localhost:4000/>.
+Then navigate to http://localhost:4001/
 
 To lint the Python helper script:
 

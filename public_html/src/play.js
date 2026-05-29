@@ -1,12 +1,11 @@
 //
 // Hey you! I said "view behind the curtain",
-// not "go wander out back in the parking lot".
+// not "break and enter through the backdoor".
 //
-// Anyway, it's okay.
-// I suppose I deserve that, for the "strong-smelling smoked fish".
+// Anyway, it's okay. I suppose I deserve that, for the "strong-smelling smoked fish".
 //
-// Note that you're not meant to be able to crack the below encryption.
-// Have a look around if you like! Though, I promise it won't help with the challenge.
+// Note that you're not expected to be able to crack the encryption below.
+// Have a look if you like! But, I promise this file won't help with the puzzle.
 //
 // (Remember that you may look things up, for example on Wikipedia.)
 //
@@ -246,7 +245,7 @@ function main() {
 	// init
 	at(pos).classList.add('cell--cursor');
 
-	const helperText = `📢 Hello. For these challenges, it'll be easier if you use "view source" instead of "inspect element". Enjoy!`;
+	const helperText = `📢 Hello. For these puzzles, it'll be easier if you use "view source" instead of "inspect element". Enjoy!`;
 	console.log(helperText);
 	document.body.prepend(document.createComment(helperText));
 }
